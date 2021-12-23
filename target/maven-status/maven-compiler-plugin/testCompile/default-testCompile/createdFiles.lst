@@ -1,0 +1,14 @@
+org\solidcoding\spring\mediator\testutil\TestSimpleCommand.class
+org\solidcoding\spring\mediator\testutil\TestCommandHandler.class
+org\solidcoding\spring\mediator\testutil\TestEvent.class
+org\solidcoding\spring\mediator\testutil\TestSameEventHandler.class
+org\solidcoding\spring\mediator\testutil\TestQuery.class
+org\solidcoding\spring\mediator\testutil\TestSameCommandHandler.class
+org\solidcoding\spring\mediator\testutil\SideEffectContext.class
+org\solidcoding\spring\mediator\testutil\TestCommand.class
+org\solidcoding\spring\mediator\TestApplicationContext.class
+org\solidcoding\spring\mediator\testutil\TestEventHandler.class
+org\solidcoding\spring\mediator\testutil\TestSimpleCommandHandler.class
+org\solidcoding\spring\mediator\MediatorTests.class
+org\solidcoding\spring\mediator\testutil\TestObject.class
+org\solidcoding\spring\mediator\testutil\TestQueryHandler.class
