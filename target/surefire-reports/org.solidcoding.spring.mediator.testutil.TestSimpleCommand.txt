@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: org.solidcoding.spring.mediator.testutil.TestSimpleCommand
--------------------------------------------------------------------------------
-Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec

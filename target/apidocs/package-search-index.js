@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"org.solidcoding.spring.mediator"},{"l":"org.solidcoding.spring.mediator.api"}];updateSearchResults();
