@@ -106,7 +106,6 @@ public class ExampleController {
   }
 
   @GetMapping("/some-example")
-
   public ResponseEntity<String> interact() {
     return queryDispatcher.dispatch(new TestQuery());
   }
