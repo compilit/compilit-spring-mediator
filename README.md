@@ -92,7 +92,7 @@ public class ExampleController {
   @GetMapping("/some-example")
 
   public ResponseEntity<String> interact() {
-    rerurn queryDispatcher.dispatch(new TestQuery());
+    return queryDispatcher.dispatch(new TestQuery());
   }
 
 }
