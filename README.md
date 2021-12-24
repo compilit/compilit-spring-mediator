@@ -54,21 +54,21 @@ Queries, Events and their respective handlers.
 All components which a user of the API can to interact with:
 
 ### Command-related
-- Command: a writing operation which is handled by a single handler. It provides a return value option to return an Id
+- <b>Command:</b> a writing operation which is handled by a single handler. It provides a return value option to return an Id
   of a created entity for example. Or you could return a "Result". This return value should never be filled by a reading
   operation.
-- CommandHandler: the handler for a specific Command.
-- CommandDispatcher: the main interactor for dispatching Commands.
+- <b>CommandHandler:</b> the handler for a specific Command.
+- <b>CommandDispatcher:</b> the main interactor for dispatching Commands.
 
 ### Query-related
-- Query: a reading operation which is handled by a single handler.
-- QueryHandler: the handler for a specific Query.
-- QueryDispatcher: the main interactor for dispatching Queries.
+- <b>Query:</b> a reading operation which is handled by a single handler.
+- <b>QueryHandler:</b> the handler for a specific Query.
+- <b>QueryDispatcher:</b> the main interactor for dispatching Queries.
 
 ### Event-related
-- Event: something that has happened which other operations can subscribe to. Can be handled by multiple EventHandlers.
-- EventHandler: the handler for a specific Event.
-- EventEmitter: the main interactor for emitting Events.
+- <b>Event:</b> something that has happened which other operations can subscribe to. Can be handled by multiple EventHandlers.
+- <b>EventHandler:</b> the handler for a specific Event.
+- <b>EventEmitter:</b> the main interactor for emitting Events.
 
 Here is an example:
 
