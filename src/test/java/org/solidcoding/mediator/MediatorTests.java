@@ -38,7 +38,7 @@ class MediatorTests {
   }
 
   @Test
-  void emit_eventWithMultipleEventHandlersOfTheSameEvent_shouldInteractWithContextMultipleTimes() {
+  void emit_eventWithMultipleEventHandlers_shouldInteractWithContextMultipleTimes() {
     context.refresh();
     AssertionsForClassTypes.assertThat(SideEffectContext.isInvoked).isFalse();
     context.registerBean("1", EventHandler.class, TestEventHandler::new);
