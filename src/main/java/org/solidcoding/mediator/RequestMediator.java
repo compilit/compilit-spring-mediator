@@ -6,7 +6,7 @@ import javax.annotation.ManagedBean;
 import java.util.List;
 
 @ManagedBean
-class RequestMediator implements Mediator {
+final class RequestMediator implements Mediator {
 
   private final CommandHandlerProvider commandHandlerProvider;
   private final QueryHandlerProvider queryHandlerProvider;

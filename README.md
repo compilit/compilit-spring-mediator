@@ -5,7 +5,8 @@ An implementation of the Mediator/CQERS pattern using Spring.
 This implementation was inspired by <a href="https://github.com/jkratz55/spring-mediatR">Spring MediatR</a>
 and <a href=https://github.com/jbogard/MediatR>MediatR for .NET</a>.
 
-I do not claim do have a better implementation. Only the initial configuration is a bit easier/less verbose.
+I do not claim this is a better implementation than the aforementioned JVM implementation. Only the initial
+configuration is a bit easier/less verbose.
 
 # Installation
 
@@ -54,19 +55,24 @@ Queries, Events and their respective handlers.
 All components which a user of the API can to interact with:
 
 ### Command-related
-- <b>Command:</b> a writing operation which is handled by a single handler. It provides a return value option to return an Id
-  of a created entity for example. Or you could return a "Result". This return value should never be filled by a reading
-  operation.
+
+- <b>Command:</b> a writing operation which is handled by a single handler. It provides a return value option to return
+  an Id of a created entity for example. Or you could return
+  a <a href="https://github.com/solidcoding-org/solidcoding-results">Result</a>. This return value should never be
+  filled by a reading operation.
 - <b>CommandHandler:</b> the handler for a specific Command.
 - <b>CommandDispatcher:</b> the main interactor for dispatching Commands.
 
 ### Query-related
+
 - <b>Query:</b> a reading operation which is handled by a single handler.
 - <b>QueryHandler:</b> the handler for a specific Query.
 - <b>QueryDispatcher:</b> the main interactor for dispatching Queries.
 
 ### Event-related
-- <b>Event:</b> something that has happened which other operations can subscribe to. Can be handled by multiple EventHandlers.
+
+- <b>Event:</b> something that has happened which other operations (EventHandlers) can subscribe to. Can be handled by multiple
+  EventHandlers.
 - <b>EventHandler:</b> the handler for a specific Event.
 - <b>EventEmitter:</b> the main interactor for emitting Events.
 
@@ -115,3 +121,13 @@ public class ExampleController {
 
 }
 ```
+
+### For those paying attention
+
+If you've looked at my implementation you might have noticed that there is no difference in behaviour between the
+CommandHandlers and the QueryHandlers. Both have the ability to return values. It is true that returning a value from a
+Command enables the user of this library to still break with CQRS and perform reading operations inside CommandHandlers.
+This, however, is always possible. I considered this and decided that it was more important to provide an API that is
+consistent with other frameworks and libraries. Most writing operations return either the written object, the ID of the
+written object or some other kind of result. The whole point of having a separate Query and Command class is for reading
+purposes only. This way it should be clear to the reader that some operation is only about reading or about writing.

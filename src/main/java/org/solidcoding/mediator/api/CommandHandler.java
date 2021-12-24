@@ -9,4 +9,5 @@ package org.solidcoding.mediator.api;
 public interface CommandHandler<T extends Command<R>, R> extends RequestHandler<T, R> {
 
   R handle(T command);
+
 }

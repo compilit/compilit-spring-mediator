@@ -46,18 +46,20 @@ abstract class AbstractHandlerProvider {
           AtomicReference<H> atomicReference,
           Class<?> handlerClass,
           T request) {
-    var handlers = genericApplicationContext.getBeanFactory().getBeansOfType(handlerClass);
-    handlers.forEach((beanName, handler) -> {
-              List<Class<?>> generics = resolveGenericParameters(handler, handlerClass, beanName);
-              var requestTypeClass = generics.get(FIRST_TYPE_ARGUMENT);
-              if (requestTypeClass.equals(request.getClass())) {
-                if (atomicReference.get() != null) {
-                  throw new MediatorException(multipleHandlersRegisteredMessage(request.getClass().getName()));
-                }
-                atomicReference.set((H) handler);
-              }
-            }
-    );
+    genericApplicationContext
+            .getBeanFactory()
+            .getBeansOfType(handlerClass)
+            .forEach((beanName, handler) -> {
+                      List<Class<?>> generics = resolveGenericParameters(handler, handlerClass, beanName);
+                      var requestTypeClass = generics.get(FIRST_TYPE_ARGUMENT);
+                      if (requestTypeClass.equals(request.getClass())) {
+                        if (atomicReference.get() != null) {
+                          throw new MediatorException(multipleHandlersRegisteredMessage(request.getClass().getName()));
+                        }
+                        atomicReference.set((H) handler);
+                      }
+                    }
+            );
   }
 
 
