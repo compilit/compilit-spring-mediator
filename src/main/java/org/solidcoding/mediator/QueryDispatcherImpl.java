@@ -2,9 +2,10 @@ package org.solidcoding.mediator;
 
 import org.solidcoding.mediator.api.Query;
 import org.solidcoding.mediator.api.QueryDispatcher;
-import org.springframework.stereotype.Component;
 
-@Component
+import javax.annotation.ManagedBean;
+
+@ManagedBean
 final class QueryDispatcherImpl implements QueryDispatcher {
 
   private final Mediator mediator;

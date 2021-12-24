@@ -2,9 +2,10 @@ package org.solidcoding.mediator;
 
 import org.solidcoding.mediator.api.Event;
 import org.solidcoding.mediator.api.EventEmitter;
-import org.springframework.stereotype.Component;
 
-@Component
+import javax.annotation.ManagedBean;
+
+@ManagedBean
 final class EventEmitterImpl implements EventEmitter {
 
   private final Mediator mediator;

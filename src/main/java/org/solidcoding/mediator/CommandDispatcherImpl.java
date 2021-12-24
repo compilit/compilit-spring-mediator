@@ -2,9 +2,10 @@ package org.solidcoding.mediator;
 
 import org.solidcoding.mediator.api.Command;
 import org.solidcoding.mediator.api.CommandDispatcher;
-import org.springframework.stereotype.Component;
 
-@Component
+import javax.annotation.ManagedBean;
+
+@ManagedBean
 final class CommandDispatcherImpl implements CommandDispatcher {
 
   private final Mediator mediator;

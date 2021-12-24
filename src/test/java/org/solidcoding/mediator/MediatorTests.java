@@ -4,23 +4,21 @@ import org.assertj.core.api.Assertions;
 import org.assertj.core.api.AssertionsForClassTypes;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.solidcoding.spring.mediator.api.*;
-import org.solidcoding.spring.mediator.testutil.*;
 import org.solidcoding.mediator.api.*;
 import org.solidcoding.mediator.testutil.*;
 import org.springframework.context.support.GenericApplicationContext;
 
-public class MediatorTests {
+class MediatorTests {
 
   private final GenericApplicationContext context = new GenericApplicationContext();
 
   @BeforeEach
-  public void reset() {
+  void reset() {
     SideEffectContext.reset();
   }
 
   @Test
-  public void dispatch_MultipleEqualHandlers_ShouldThrowException() {
+  void dispatch_multipleEqualHandlers_shouldThrowException() {
     context.refresh();
     context.registerBean(TestCommandHandler.class.getName(), CommandHandler.class, () -> new TestCommandHandler());
     TestApplicationContext.registerCqersModule(context);
@@ -29,7 +27,7 @@ public class MediatorTests {
   }
 
   @Test
-  public void emit_Event_ShouldEmitEvent() {
+  void emit_event_shouldInteractWithContext() {
     context.refresh();
     AssertionsForClassTypes.assertThat(SideEffectContext.isInvoked).isFalse();
     context.registerBean(EventHandler.class, TestEventHandler::new);
@@ -40,7 +38,7 @@ public class MediatorTests {
   }
 
   @Test
-  public void emit_EventWithMultipleEventHandlersOfTheSameEvent_ShouldHandleEventMultipleTimes() {
+  void emit_eventWithMultipleEventHandlersOfTheSameEvent_shouldInteractWithContextMultipleTimes() {
     context.refresh();
     AssertionsForClassTypes.assertThat(SideEffectContext.isInvoked).isFalse();
     context.registerBean("1", EventHandler.class, TestEventHandler::new);
@@ -52,7 +50,7 @@ public class MediatorTests {
   }
 
   @Test
-  public void dispatch_Command_ShouldDispatchCommand() {
+  void dispatch_command_shouldDispatchCommand() {
     context.refresh();
     AssertionsForClassTypes.assertThat(SideEffectContext.isInvoked).isFalse();
     context.registerBean(CommandHandler.class, TestCommandHandler::new);
@@ -63,7 +61,7 @@ public class MediatorTests {
   }
 
   @Test
-  public void dispatch_MultipleEqualCommands_ShouldThrowException() {
+  void dispatch_multipleEqualCommands_shouldThrowException() {
     context.refresh();
     AssertionsForClassTypes.assertThat(SideEffectContext.isInvoked).isFalse();
     context.registerBean("1", CommandHandler.class, TestCommandHandler::new);
@@ -76,7 +74,7 @@ public class MediatorTests {
   }
 
   @Test
-  public void dispatch_SimpleCommand_ShouldDispatchSimpleCommand() {
+  void dispatch_simpleCommand_shouldInteractWithContext() {
     context.refresh();
     AssertionsForClassTypes.assertThat(SideEffectContext.isInvoked).isFalse();
     context.registerBean(CommandHandler.class, TestSimpleCommandHandler::new);
@@ -87,7 +85,7 @@ public class MediatorTests {
   }
 
   @Test
-  public void dispatch_Query_ShouldDispatchQuery() {
+  void dispatch_query_shouldInteractWithContext() {
     context.refresh();
     AssertionsForClassTypes.assertThat(SideEffectContext.isInvoked).isFalse();
     context.registerBean(QueryHandler.class, TestQueryHandler::new);
@@ -98,7 +96,7 @@ public class MediatorTests {
   }
 
   @Test
-  public void dispatch_MultipleEqualQueries_ShouldDispatchQuery() {
+  void dispatch_multipleEqualQueries_shouldThrowException() {
     context.refresh();
     AssertionsForClassTypes.assertThat(SideEffectContext.isInvoked).isFalse();
     context.registerBean("1", QueryHandler.class, TestQueryHandler::new);
@@ -111,7 +109,7 @@ public class MediatorTests {
   }
 
   @Test
-  public void multipleInvocations_ShouldWork() {
+  void dispatch_multipleInvocations_shouldInteractWithContextMultipleTimes() {
     context.refresh();
     AssertionsForClassTypes.assertThat(SideEffectContext.isInvoked).isFalse();
     context.registerBean(QueryHandler.class, TestQueryHandler::new);

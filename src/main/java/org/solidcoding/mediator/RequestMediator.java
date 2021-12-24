@@ -1,12 +1,11 @@
 package org.solidcoding.mediator;
 
-import org.solidcoding.spring.mediator.api.*;
 import org.solidcoding.mediator.api.*;
-import org.springframework.stereotype.Component;
 
+import javax.annotation.ManagedBean;
 import java.util.List;
 
-@Component
+@ManagedBean
 class RequestMediator implements Mediator {
 
   private final CommandHandlerProvider commandHandlerProvider;

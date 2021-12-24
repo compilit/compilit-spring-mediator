@@ -3,15 +3,15 @@ package org.solidcoding.mediator;
 import org.solidcoding.mediator.api.Event;
 import org.solidcoding.mediator.api.EventHandler;
 import org.springframework.context.support.GenericApplicationContext;
-import org.springframework.stereotype.Component;
 
+import javax.annotation.ManagedBean;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicReference;
 
-@Component
+@ManagedBean
 final class EventHandlerProvider extends AbstractHandlerProvider {
 
   private final Map<String, EventHandlerWrapper> eventHandlerMap = new HashMap<>();

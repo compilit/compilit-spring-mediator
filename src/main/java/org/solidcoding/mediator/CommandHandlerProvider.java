@@ -3,13 +3,13 @@ package org.solidcoding.mediator;
 import org.solidcoding.mediator.api.Command;
 import org.solidcoding.mediator.api.CommandHandler;
 import org.springframework.context.support.GenericApplicationContext;
-import org.springframework.stereotype.Component;
 
+import javax.annotation.ManagedBean;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicReference;
 
-@Component
+@ManagedBean
 final class CommandHandlerProvider extends AbstractHandlerProvider {
 
   private final Map<String, CommandHandlerWrapper> commandHandlerMap = new HashMap<>();
