@@ -17,7 +17,7 @@ import static org.solidcoding.mediator.GenericTypeParameterResolver.resolveGener
 abstract class AbstractHandlerProvider {
 
   private static final int FIRST_TYPE_ARGUMENT = 0;
-  protected GenericApplicationContext genericApplicationContext;
+  protected final GenericApplicationContext genericApplicationContext;
 
   protected AbstractHandlerProvider(GenericApplicationContext genericApplicationContext) {
     this.genericApplicationContext = genericApplicationContext;

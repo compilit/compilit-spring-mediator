@@ -45,7 +45,7 @@ application robust and predictable by separating reading operations from writing
 popular approach. The idea is that a Mediator is in between all requests (requests can be read or write requests), so
 that is no direct interaction with resources. This means that there are only 3 specific dependencies which connect your
 api layer to the domain layer: the CommandDispatcher, the QueryDispatcher and the EventEmitter. Why 3 instead of just
-1 'Mediator' class? Because that would introduce the 'Service Locator anti-pattern' and defeat the purpose of this
+1 'Mediator' class? Because that would introduce the 'Service Locator antipattern' and defeat the purpose of this
 library. By having a separate interface for Commands, Queries and Events, CQ(E)RS is enforced.
 
 In the org.solidcoding.mediator.api package you'll find all interfaces which you can use to write your own Commands,
