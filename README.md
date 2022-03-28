@@ -1,4 +1,4 @@
-# solidcoding-spring-mediator
+# compilit-spring-mediator
 
 An implementation of the Mediator/CQERS pattern using Spring.
 
@@ -15,8 +15,8 @@ Get this dependency with the latest version.
 ```xml
 
 <dependency>
-    <artifactId>solidcoding-spring-mediator</artifactId>
-    <groupId>org.solidcoding</groupId>
+    <artifactId>compilit-spring-mediator</artifactId>
+    <groupId>com.compilit</groupId>
 </dependency>
 ```
 
@@ -41,7 +41,7 @@ Now all you need to do is register QueryHandler, CommandHandler and/or EventHand
 # Usage
 
 The Mediator pattern is about making your application loosely
-coupled. <a href="https://www.solidcoding.org/definitions/cqers/">CQRS</a> (or in this case CQERS) is meant to make the
+coupled. <a href="https://www.compilit.org/definitions/cqers/">CQRS</a> (or in this case CQERS) is meant to make the
 application robust and predictable by separating reading operations from writing operations. Combining them is quite a
 popular approach. The idea is that a Mediator is in between all requests (requests can be read or write requests), so
 that is no direct interaction with resources. This means that there are only 3 specific dependencies which connect your
@@ -49,7 +49,7 @@ api layer to the domain layer: the CommandDispatcher, the QueryDispatcher and th
 1 'Mediator' class? Because that would introduce the 'Service Locator antipattern' and defeat the purpose of this
 library. By having a separate interface for Commands, Queries and Events, CQ(E)RS is enforced.
 
-In the org.solidcoding.mediator.api package you'll find all interfaces which you can use to write your own Commands,
+In the org.compilit.mediator.api package you'll find all interfaces which you can use to write your own Commands,
 Queries, Events and their respective handlers.
 
 All components which a user of the API can to interact with:
@@ -58,7 +58,7 @@ All components which a user of the API can to interact with:
 
 - <b>Command:</b> a writing operation which is handled by a single handler. It provides a return value option to return
   an Id of a created entity for example. Or you could return
-  a <a href="https://github.com/solidcoding-org/solidcoding-results">Result</a>. This return value should never be
+  a <a href="https://github.com/compilit-org/compilit-results">Result</a>. This return value should never be
   filled by a reading operation.
 - <b>CommandHandler:</b> the handler for a specific Command.
 - <b>CommandDispatcher:</b> the main interactor for dispatching Commands.
@@ -79,7 +79,7 @@ All components which a user of the API can to interact with:
 Here is an example:
 
 ```java
-import org.solidcoding.mediator.api.QueryDispatcher;
+import QueryDispatcher;
 
 public class TestQuery implements Query<String> {
 
