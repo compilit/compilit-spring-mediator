@@ -20,8 +20,8 @@ Get this dependency with the latest version.
 </dependency>
 ```
 
-Then add an extra ManagedBeanScan to your project by annotating any managed bean class with @ComponentScan(
-CQERS_MEDIATOR_PACKAGE)
+Then add an extra ManagedBeanScan to your project by annotating a managed bean class with @ComponentScan(
+CQERS_MEDIATOR_PACKAGE). I've noticed that adding this annotation to the main class works all the time. Other managed beans might be more finicky about having this annotation.
 
 ```Java
 
