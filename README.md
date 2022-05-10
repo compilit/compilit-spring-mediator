@@ -1,6 +1,13 @@
 # compilit-spring-mediator
 
-An implementation of the Mediator/CQERS pattern using Spring.
+An implementation of the Mediator/CQERS pattern using Spring. 
+
+The purpose of this library is to take away all of the boiler plate code that is connected to implementing this pattern. This library works to achieve several goals:
+
+1. Make your application as loosely coupled as possible.
+2. Enforce CQRS.
+
+It does this by providing a simple API consisting of a CommandDispatcher, a QueryDispatcher and an EventEmitter. These are the only dependencies you'll ever need to inject in any of your classes/services that wish to interact with others. The internal Mediator will handle all of this interaction. The interaction takes place through the respecitive Commands Queries and Events which are internally connected to their CommandHandler, QueryHandler and EventHandler counterparts.
 
 This implementation was inspired by <a href="https://github.com/jkratz55/spring-mediatR">Spring MediatR</a>
 and <a href=https://github.com/jbogard/MediatR>MediatR for .NET</a>.
